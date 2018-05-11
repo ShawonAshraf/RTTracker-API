@@ -1,5 +1,9 @@
-// load config
-require('./config/config');
+// define local or production env
+var env = process.env.NODE_ENV || 'local';
+if (env == 'local') {
+    // load config
+    require('./config/config');
+}
 
 // dependencies
 const express = require('express');
