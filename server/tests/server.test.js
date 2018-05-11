@@ -2,7 +2,7 @@ const request = require('supertest');
 const expect = require('expect');
 
 // import express app in server.js
-var app = require('./../server');
+var { app } = require('./../server');
 
 // coordinates for simulation
 var coordinates = {
@@ -18,6 +18,7 @@ describe('POST /api/simloc', () => {
             .expect(200)
             .expect((res) => {
                 expect(res.body.message).toBe('success');
-            });
+            })
+            .end(done);
     });
 });
