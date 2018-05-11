@@ -13,14 +13,15 @@ var pusherConfig = {
     secret,
     cluster
 };
-var pusher = new Pusher(pusherConfig);
-
-console.log(pusherConfig);
 
 // round value upto decPoint places
 const decPoint = 7;
 
 var simulateGPS = (longitude, lattitude, n, timeOut) => {
+    // create pusher object
+    var pusher = new Pusher(pusherConfig);
+
+    // loop...
     var loopCount = 0;
     var operator = 0.001000;
     var longitude = parseFloat(longitude);
