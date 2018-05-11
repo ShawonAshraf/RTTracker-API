@@ -5,7 +5,7 @@ var pusher = new Pusher(require('./../config/config'));
 // round value upto decPoint places
 const decPoint = 7;
 
-var simulateGPS = (longitude, lattitude) => {
+var simulateGPS = (longitude, lattitude, n, timeOut) => {
     var loopCount = 0;
     var operator = 0.001000;
     var longitude = parseFloat(longitude);
@@ -19,10 +19,10 @@ var simulateGPS = (longitude, lattitude) => {
 
         pusher.trigger('mapCoordinates', 'update', { longitude, lattitude });
 
-        if (loopCount === 20) {
+        if (loopCount === n) {
             clearInterval(sendToPusher);
         }
-    }, 2000);
+    }, timeOut);
 };
 
 module.exports = {
