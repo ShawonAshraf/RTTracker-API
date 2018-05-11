@@ -38,6 +38,8 @@ var simulateGPS = (longitude, lattitude, n, timeOut) => {
         if (loopCount === n) {
             clearInterval(sendToPusher);
         }
+        console.log(`longitude = ${longitude} @ ${new Date().getUTCDate()}`)
+        console.log(`latitude = ${lattitude} @ ${new Date().getUTCDate()}`)
     }, timeOut);
 };
 
