@@ -1,0 +1,23 @@
+{
+  "name": "rt-tracker-api",
+  "version": "1.0.0",
+  "description": "real time location tracking api",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ShawonAshraf/RTTracker-API.git"
+  },
+  "keywords": [
+    "location",
+    "tracking"
+  ],
+  "author": "Shawon Ashraf",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ShawonAshraf/RTTracker-API/issues"
+  },
+  "homepage": "https://github.com/ShawonAshraf/RTTracker-API#readme"
+}
