@@ -6,11 +6,28 @@ var { app } = require('./../server');
 
 // coordinates for simulation
 var coordinates = {
-    longitude: "23.7612372",
-    lattitude: "90.4322414"
+    latitude: "23.7612372",
+    longitude: "90.4322414"
 };
 
 describe('POST /api/simloc', () => {
+    it('should check if request contains numbers', (done) => {
+        request(app)
+            .post('/api/simloc')
+            .send(coordinates)
+            .expect((res) => {
+                expect(res.body.latitude).toBeA('number');
+                expect(res.body.longitude).toBeA('number');
+            })
+            .end((err) => {
+                if (err) {
+                    return done(err);
+                }
+                done();
+            });
+    });
+
+
     it('should return status code 200 and success on valid request', (done) => {
         request(app)
             .post('/api/simloc')
@@ -21,7 +38,7 @@ describe('POST /api/simloc', () => {
             })
             .end((err) => {
                 if (err) {
-                    done(err);
+                    return done(err);
                 }
                 done();
             });

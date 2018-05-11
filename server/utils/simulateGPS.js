@@ -17,29 +17,29 @@ var pusherConfig = {
 // round value upto decPoint places
 const decPoint = 7;
 
-var simulateGPS = (longitude, lattitude, n, timeOut) => {
+var simulateGPS = (longitude, latitude, n, timeOut) => {
     // create pusher object
     var pusher = new Pusher(pusherConfig);
 
     // loop...
     var loopCount = 0;
     var operator = 0.001000;
-    var longitude = parseFloat(longitude);
-    var lattitude = parseFloat(lattitude);
+    long = parseFloat(longitude);
+    lat = parseFloat(latitude);
 
     var sendToPusher = setInterval(() => {
         loopCount++;
 
-        longitude = parseFloat((longitude + operator).toFixed(decPoint));
-        lattitude = parseFloat((lattitude - operator).toFixed(decPoint));
+        long = parseFloat((long + operator).toFixed(decPoint));
+        lat = parseFloat((lat - operator).toFixed(decPoint));
 
-        pusher.trigger('mapCoordinates', 'update', { longitude, lattitude });
+        pusher.trigger('mapCoordinates', 'update', { long, lat });
 
         if (loopCount === n) {
             clearInterval(sendToPusher);
         }
-        console.log(`longitude = ${longitude} @ ${new Date().getUTCDate()}`)
-        console.log(`latitude = ${lattitude} @ ${new Date().getUTCDate()}`)
+        console.log(`longitude = ${longitude} @ ${new Date()}`);
+        console.log(`latitude = ${latitude} @ ${new Date()}`);
     }, timeOut);
 };
 

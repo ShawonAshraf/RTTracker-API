@@ -28,11 +28,13 @@ app.use(bodyparser.urlencoded({ extended: false }));
 
 app.post('/api/simloc', (req, res) => {
     var longitude = req.body.longitude;
-    var lattiude = req.body.lattiude;
+    var latiude = req.body.latitude;
     var timeOut = 2000; // in ms
     var n = 20; // we simulate 20 coordinates for now
 
-    simulateGPS(longitude, lattiude, n, timeOut);
+    console.log(req.body);
+
+    simulateGPS(longitude, latiude, n, timeOut);
 
     res.status(200).send({ message: 'success', code: 200 });
 });
