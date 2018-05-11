@@ -1,13 +1,21 @@
 const Pusher = require('pusher');
 
 // load config from ENV
-var config = {
-    appId: process.env.appId,
-    key: process.env.key,
-    secret: process.env.secret,
-    cluster: process.env.cluster
+
+var appId = process.env.appId;
+var key = process.env.key;
+var secret = process.env.secret;
+var cluster = process.env.cluster;
+
+var pusherConfig = {
+    appId,
+    key,
+    secret,
+    cluster
 };
-var pusher = new Pusher(config);
+var pusher = new Pusher(pusherConfig);
+
+console.log(pusherConfig);
 
 // round value upto decPoint places
 const decPoint = 7;

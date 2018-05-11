@@ -1,3 +1,6 @@
+// load config
+require('./config/config');
+
 // dependencies
 const express = require('express');
 const bodyparser = require('body-parser');
@@ -5,7 +8,6 @@ const bodyparser = require('body-parser');
 
 // utils
 var { simulateGPS } = require('./utils/simulateGPS');
-
 
 // init
 var app = express();
