@@ -19,5 +19,10 @@
   "bugs": {
     "url": "https://github.com/ShawonAshraf/RTTracker-API/issues"
   },
-  "homepage": "https://github.com/ShawonAshraf/RTTracker-API#readme"
+  "homepage": "https://github.com/ShawonAshraf/RTTracker-API#readme",
+  "dependencies": {
+    "body-parser": "^1.18.2",
+    "express": "^4.16.3",
+    "pusher": "^2.0.0"
+  }
 }
