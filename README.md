@@ -27,7 +27,11 @@ npm start
 npm run test-watch
 ```
 
+
 - Use [Postman](https://www.getpostman.com) to send `HTTP` requests.
 
 ## API Keys for Pusher
 Head over to [Pusher](https://pusher.com), sign up and get your API key.
+
+## API Usage Examples
+For API usage examples, see [Usage](Usage.md)
