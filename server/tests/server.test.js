@@ -19,6 +19,31 @@ describe('POST /api/simloc', () => {
             .expect((res) => {
                 expect(res.body.message).toBe('success');
             })
-            .end(done);
+            .end((err) => {
+                if (err) {
+                    done(err);
+                }
+                done();
+            });
+    });
+});
+
+describe('GET /', () => {
+    it('should return the messages specified for index', (done) => {
+        request(app)
+            .get('/')
+            .expect(200)
+            .expect((res) => {
+                expect(res.body).toInclude({
+                    message: 'RT Tracker API Index',
+                    github: 'https://github.com/ShawonAshraf/RTTracker-API'
+                });
+            })
+            .end((err) => {
+                if (err) {
+                    done(err);
+                }
+                done();
+            });
     });
 });
