@@ -1,6 +1,5 @@
 // dependencies
 const express = require('express');
-const Pusher = require('pusher');
 const bodyparser = require('body-parser');
 
 
@@ -10,7 +9,6 @@ var { simulateGPS } = require('./utils/simulateGPS');
 
 // init
 var app = express();
-var pusher = new Pusher(require('./config/config'));
 const port = process.env.PORT || 3000;
 
 // register middlewares
