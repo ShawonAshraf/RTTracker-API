@@ -33,6 +33,15 @@ app.post('/api/simloc', (req, res) => {
     res.status(200).send({ message: 'success', code: 200 });
 });
 
+//
+// GET index
+app.get('/', (req, res) => {
+    res.send({
+        message: 'RT Tracker API Index',
+        github: 'https://github.com/ShawonAshraf/RTTracker-API'
+    });
+});
+
 app.listen(port, () => {
     console.log('Server running @ PORT ', port);
 });
