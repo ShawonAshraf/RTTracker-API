@@ -4,6 +4,10 @@ const Pusher = require('pusher');
 const bodyparser = require('body-parser');
 
 
+// utils
+var { simulateGPS } = require('./utils/simulateGPS');
+
+
 // init
 var app = express();
 var pusher = new Pusher(require('./config/config'));
@@ -16,26 +20,15 @@ app.use(bodyparser.urlencoded({ extended: false }));
 // routes
 //
 //  POST simloc
-// simulates 20 GPS Coordinates and sends to pusher
+// simulates n GPS Coordinates and sends to pusher
 
 app.post('/api/simloc', (req, res) => {
-    var loopCount = 0;
-    var operator = 0.001000;
-    var longitude = parseFloat(req.body.longitude);
-    var lattitude = parseFloat(req.body.lattitude);
+    var longitude = req.body.longitude;
+    var lattiude = req.body.lattiude;
+    var timeOut = 2000; // in ms
+    var n = 20; // we simulate 20 coordinates for now
 
-    var sendToPusher = setInterval(() => {
-        loopCount++;
-
-        longitude = parseFloat((longitude + operator).toFixed(7));
-        lattitude = parseFloat((lattitude - operator).toFixed(7));
-
-        pusher.trigger('mapCoordinates', 'update', { longitude, lattitude });
-
-        if (loopCount === 20) {
-            clearInterval(sendToPusher);
-        }
-    }, 2000);
+    simulateGPS(longitude, lattiude, n, timeOut);
 
     res.status(200).send({ message: 'success', code: 200 });
 });
